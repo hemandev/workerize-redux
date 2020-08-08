@@ -8,9 +8,13 @@ export const applyWorkerMiddleWare = (worker: Worker) => (store: Store) => (
     if (isFirstTime && worker instanceof Worker) {
         isFirstTime = false;
         worker.addEventListener('message', (evt) => {
-            if (store.dispatch && evt.data.worker) {
+            if (
+                store.dispatch &&
+                evt.data.worker &&
+                evt.data.successActionType
+            ) {
                 store.dispatch({
-                    type: action.successActionType,
+                    type: evt.data.successActionType,
                     payload: evt.data.payload
                 });
             }
@@ -18,7 +22,11 @@ export const applyWorkerMiddleWare = (worker: Worker) => (store: Store) => (
     }
 
     if (action.worker && action.successActionType) {
-        worker.postMessage({ state: store.getState(), action });
+        worker.postMessage({
+            state: store.getState(),
+            action,
+            successActionType: action.successActionType
+        });
     } else {
         return next(action);
     }

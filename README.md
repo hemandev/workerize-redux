@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/hemanditwiz/workerize-redux.svg?branch=master)](https://travis-ci.org/hemanditwiz/workerize-redux)
 
 workerize-redux is a simple middleware for redux applications which allows you to run specific tasks on
-web workers. workerize-redux action creators of type
+web workers. `workerize-redux` accepts action creators of type
 
 ```js
 {
@@ -34,6 +34,8 @@ import { createWorker } from 'workerize-redux';
 import { calculateSomethingComplex } from './calculate';
 
 // The passed state will be whole state of the app.
+// Pass a reducer like function as argument to createWorker
+// The difference here is the return value of the reducer will be sent as payload to the successAction
 const worker = createWorker((state, action) => {
     switch (action.type) {
         case 'WORKER_ACTION':

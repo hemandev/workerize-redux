@@ -11,10 +11,14 @@ export class ReduxWorker {
     }
 
     actionHandler = (evt: MessageEvent): void => {
-        const { state, action } = evt.data;
+        const { state, action, successActionType } = evt.data;
         if (action.worker && typeof action.type === 'string') {
             const payload = this.reducerFn(state, action);
-            ctx.postMessage({ worker: true, payload });
+            ctx.postMessage({
+                worker: true,
+                successActionType,
+                payload
+            });
         }
     };
 
