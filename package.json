@@ -2,6 +2,23 @@
     "name": "workerize-redux",
     "version": "1.0.0",
     "description": "workerize-redux is a simple middleware for redux",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/hemanditwiz/workerize-redux.git"
+  },
+  "homepage": "https://github.com/hemanditwiz/workerize-redux#readme",
+  "keywords": [
+      "Redux Worker",
+      "Workerize Redux",
+      "Web worker",
+      "Redux",
+      "Redux middleware"
+  ],
+  "author": "hemanditwiz",
+  "license": "MIT",
+  "bugs": {
+      "url": "https://github.com/hemanditwiz/workerize-redux/issues"
+  },
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
@@ -20,8 +37,6 @@
         "version": "npm run format && git add -A src",
         "postversion": "git push && git push --tags"
     },
-    "author": "hemanditwiz",
-    "license": "MIT",
     "peerDependencies": {
         "redux": "^4"
     },
