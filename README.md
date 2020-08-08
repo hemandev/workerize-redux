@@ -1,7 +1,7 @@
 # workerize-redux
 
-[![npm version]()]()
-[![Build Status]()]()
+[![npm version](https://badge.fury.io/js/workerize-redux.svg)](https://badge.fury.io/js/workerize-redux)
+[![Build Status](https://travis-ci.org/hemanditwiz/workerize-redux.svg?branch=master)](https://travis-ci.org/hemanditwiz/workerize-redux)
 
 workerize-redux is a simple middleware for redux applications which allows you to run specific tasks on
 web workers. workerize-redux action creators of type
