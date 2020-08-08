@@ -1,6 +1,6 @@
 {
     "name": "workerize-redux",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "workerize-redux is a simple middleware for redux",
     "repository": {
       "type": "git",
