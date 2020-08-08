@@ -1,10 +1,10 @@
 language: generic
 
-# services: 
-#   - docker
+services: 
+  - docker
 
-# before_install:
-#   - docker build -t engagespot/push-notification  .  
+before_install:
+  - docker build -t hemanditwiz/workerize-redux  .  
 
-# script:
-#   - docker run -e CI=true engagespot/push-notification npm test
+script:
+  - docker run -e CI=true hemanditwiz/workerize-redux npm test
