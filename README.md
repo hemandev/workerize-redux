@@ -83,3 +83,6 @@ const reducer = (state, action) => {
 ## TypeScript
 
 workerize-redux includes [TypeScript](http://typescriptlang.org) definitions out of the box.
+
+## Licence
+MIT
