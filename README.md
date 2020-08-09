@@ -53,7 +53,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { applyWorkerMiddleWare } from 'workerize-redux';
 
 const worker = new Worker('./dist/worker.ts');
-const store = createStore(reducer, preloadedState, applyMiddleware(worker));
+const workerMiddleware = applyWorkerMiddleWare(worker);
+const store = createStore(reducer, preloadedState, applyMiddleware(workerMiddleware));
 ```
 
 ```js
