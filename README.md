@@ -48,7 +48,7 @@ const worker = createWorker((state, action) => {
 ### Main thread
 
 ```js
-//store.ts
+//store.js
 import { createStore, applyMiddleware } from 'redux';
 import { applyWorker } from 'workerize-redux';
 
@@ -58,7 +58,7 @@ const store = createStore(reducer, preloadedState, applyMiddleware(workerMiddlew
 ```
 
 ```js
-//main.ts
+//main.js
 
 dispatch({
     type: 'WORKER_ACTION',
@@ -69,7 +69,7 @@ dispatch({
 ```
 
 ```js
-//reducer.ts
+//reducer.js
 const reducer = (state, action) => {
     switch (action.type) {
         case 'WORKER_SUCCESS_ACTION':
