@@ -50,10 +50,10 @@ const worker = createWorker((state, action) => {
 ```js
 //store.ts
 import { createStore, applyMiddleware } from 'redux';
-import { applyWorkerMiddleWare } from 'workerize-redux';
+import { applyWorker } from 'workerize-redux';
 
 const worker = new Worker('./dist/worker.ts');
-const workerMiddleware = applyWorkerMiddleWare(worker);
+const workerMiddleware = applyWorker(worker);
 const store = createStore(reducer, preloadedState, applyMiddleware(workerMiddleware));
 ```
 
@@ -70,9 +70,6 @@ dispatch({
 
 ```js
 //reducer.ts
-import { createStore, applyMiddleware } from 'redux';
-import { applyWorkerMiddleWare } from 'workerize-redux';
-
 const reducer = (state, action) => {
     switch (action.type) {
         case 'WORKER_SUCCESS_ACTION':

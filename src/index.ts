@@ -1,10 +1,14 @@
-import { Reducer } from 'redux';
-import { ReduxWorker } from './reduxWorker';
+import { WorkerizeRedux, WorkerReducer, WorkerAction } from './workerizeRedux';
 
-export { applyWorkerMiddleWare } from './applyWorkerMiddleware';
+export { WorkerAction, WorkerPayloadAction } from './workerizeRedux';
 
-export const createWorker = (reducer: Reducer): ReduxWorker => {
-    const reduxWorker = new ReduxWorker();
-    reduxWorker.addReducer(reducer);
-    return reduxWorker;
+export { applyWorker } from './applyWorker';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const createWorker = <T = any, A extends WorkerAction = WorkerAction>(
+    reducer: WorkerReducer<T, A>
+): WorkerizeRedux<T, A> => {
+    const workerizeRedux = new WorkerizeRedux<T, A>();
+    workerizeRedux.addWorkerReducer(reducer);
+    return workerizeRedux;
 };

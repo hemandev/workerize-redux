@@ -1,10 +1,10 @@
-import { AnyAction, Store, Dispatch } from 'redux';
+import { AnyAction, Middleware } from 'redux';
 
 let isFirstTime = true;
 
-export const applyWorkerMiddleWare = (worker: Worker) => (store: Store) => (
-    next: Dispatch
-) => (action: AnyAction): AnyAction | undefined => {
+export const applyWorker = (worker: Worker): Middleware => (store) => (
+    next
+) => (action): AnyAction | undefined => {
     if (isFirstTime && worker instanceof Worker) {
         isFirstTime = false;
         worker.addEventListener('message', (evt) => {
