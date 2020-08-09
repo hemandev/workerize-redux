@@ -78,8 +78,9 @@ const reducer = (state, action) => {
 });
 ```
 
-### Instance methods
-
 ## TypeScript
 
 workerize-redux includes [TypeScript](http://typescriptlang.org) definitions out of the box.
+
+## Licence
+MIT
